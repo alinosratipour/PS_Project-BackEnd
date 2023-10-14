@@ -11,6 +11,7 @@ const listPizzasWithToppingsResolver = {
             include: {
               topping: true, // Include the related Toppings
             },
+            
           },
         },
       });

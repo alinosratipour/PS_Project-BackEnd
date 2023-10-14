@@ -53,6 +53,7 @@ model ToppingPrice {
   id_size       Int
   price_topping Float
   size          Size  @relation("ToppingPriceSize", fields: [id_size], references: [id_size])
+  topping       Toppings @relation(fields: [id], references: [id])
 }
 
 model ToppingOnPizza {
@@ -67,6 +68,7 @@ model Toppings {
   id     Int              @id @default(autoincrement())
   name   String
   pizzas ToppingOnPizza[]
+  topping ToppingPrice[] 
 }
 
 model PizzaPrice {
