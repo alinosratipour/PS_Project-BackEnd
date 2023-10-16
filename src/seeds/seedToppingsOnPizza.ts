@@ -3,12 +3,12 @@ import { PrismaClient } from '@prisma/client';
 const prisma = new PrismaClient();
 
 const toppingOnPizzaData = [
-  { id_pizza: 1, idf_topping: 41 }, 
-  { id_pizza: 1, idf_topping: 42 }, 
-  { id_pizza: 2, idf_topping: 43 }, 
-  { id_pizza: 2, idf_topping: 44 }, 
-  { id_pizza: 2, idf_topping: 45 }, 
-  { id_pizza: 2, idf_topping: 46 }, 
+  { id_pizza: 1, idf_topping: 1 }, 
+  { id_pizza: 1, idf_topping: 2 }, 
+  { id_pizza: 2, idf_topping: 3 }, 
+  { id_pizza: 2, idf_topping: 4 }, 
+  { id_pizza: 2, idf_topping: 5 }, 
+  { id_pizza: 2, idf_topping: 6 }, 
  
 ];
 

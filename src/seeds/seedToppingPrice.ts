@@ -6,6 +6,7 @@ const toppingPrices = [
   { id_size: 1, price_topping: 1.5 },
   { id_size: 2, price_topping: 2.0 },
   { id_size: 3, price_topping: 2.5 },
+  { id_size: 4, price_topping: 3.5 },
 ];
 
 async function main() {

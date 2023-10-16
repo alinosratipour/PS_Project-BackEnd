@@ -19,6 +19,12 @@ const typeDefs = gql`
     name: String!
   }
 
+  type ToppingPriceForSize {
+    size: String
+    toppingPrices: [ToppingPrice!]  
+  }
+  
+
   type Pizza {
     id_pizza: Int!
     name: String!
@@ -69,11 +75,13 @@ const typeDefs = gql`
     bases: [Base!]! # Add a query to fetch all bases
     getAllSizesWithRelatedBases: [SizeWithRelatedBases!]!
     pizzasWithSizesAndPrices: [Pizza!]!
+    getToppingPricesForSizes: [ToppingPriceForSize!]!
   }
 
   type Mutation {
     createPizza(name: String!, top_quantity: Int!, description: String): Pizza!
     createBase(name: String!, increase_price: Int!): Base! # Add a mutation to create a base
+ 
   }
 `;
 
