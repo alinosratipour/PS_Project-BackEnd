@@ -1,8 +1,6 @@
 
 import {Context} from '../helpers/prismaContext'
-import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
 const getpizzaWithRelatedToppingsResolver = async (
   _parent: unknown,
   _args: unknown,
@@ -42,7 +40,7 @@ const getpizzaWithRelatedToppingsResolver = async (
     console.error("Error:", error);
     throw new Error("Failed to fetch data");
   } finally {
-    await prisma.$disconnect();
+    await _context.prisma.$disconnect();;
   }
 };
 

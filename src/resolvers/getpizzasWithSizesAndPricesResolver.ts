@@ -1,8 +1,6 @@
 
 import {Context}  from '../helpers/prismaContext'
-import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
 const getpizzasWithSizesAndPricesResolver = async (
   _parent: unknown,
   _args: unknown,
@@ -41,7 +39,7 @@ const getpizzasWithSizesAndPricesResolver = async (
     console.error("Error fetching pizza data:", error);
     throw new Error("Unable to fetch pizza data");
   } finally {
-    await prisma.$disconnect();
+    await _context.prisma.$disconnect();
   }
 };
 

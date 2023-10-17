@@ -1,8 +1,6 @@
 
 import {Context} from '../helpers/prismaContext'
-import { PrismaClient } from '@prisma/client';
 
-const prisma = new PrismaClient();
 const getToppingPricesForSizesResolver = async (
   _parent: unknown,
   _args: unknown,
@@ -35,7 +33,7 @@ const getToppingPricesForSizesResolver = async (
     throw new Error('Failed to fetch topping prices for sizes.');
     
   }finally{
-    prisma.$disconnect();
+    await _context.prisma.$disconnect();
   }
 };
 
