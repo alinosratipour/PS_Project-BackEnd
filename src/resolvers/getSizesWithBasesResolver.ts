@@ -1,11 +1,9 @@
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { Context } from "../helpers/prismaContext";
 
 const getSizesWithBasesResolver = async (
   _parent: unknown,
   _args: unknown,
-  _context: { prisma: PrismaClient },
+  _context: Context,
   _info: unknown
 ) => {
   try {
@@ -32,8 +30,8 @@ const getSizesWithBasesResolver = async (
 
     return formattedData;
   } catch (error) {
-    console.error('Error fetching size data:', error);
-    throw new Error('Unable to fetch size data');
+    console.error("Error fetching size data:", error);
+    throw new Error("Unable to fetch size data");
   } finally {
     await prisma.$disconnect();
   }

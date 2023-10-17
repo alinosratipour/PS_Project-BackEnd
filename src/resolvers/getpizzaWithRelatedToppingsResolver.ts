@@ -1,11 +1,10 @@
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+import {Context} from '../helpers/prismaContext'
 
 const getpizzaWithRelatedToppingsResolver = async (
   _parent: unknown,
   _args: unknown,
-  _context: { prisma: PrismaClient },
+  _context: Context,
   _info: unknown
 ) => {
   try {
