@@ -1,11 +1,10 @@
-import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+import {Context} from '../helpers/prismaContext'
 
 const getToppingPricesForSizesResolver = async (
   _parent: unknown,
   _args: unknown,
-  _context: { prisma: PrismaClient },
+  _context: Context,
   _info: unknown
 ) => {
   try {

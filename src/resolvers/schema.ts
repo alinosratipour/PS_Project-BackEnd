@@ -68,13 +68,10 @@ const typeDefs = gql`
   }
 
   type Query {
-    sizes: [Size!]!
-    pizzas: [Pizza!]!
-    pizza(id_pizza: Int!): Pizza
-    listPizzasWithToppings: [Pizza!]!
-    bases: [Base!]! # Add a query to fetch all bases
-    getAllSizesWithRelatedBases: [SizeWithRelatedBases!]!
-    pizzasWithSizesAndPrices: [Pizza!]!
+    getAllPizzasList: [Pizza!]!
+    getpizzaWithRelatedToppings: [Pizza!]!
+    getSizesWithBases: [SizeWithRelatedBases!]!
+    getpizzasWithSizesAndPrices: [Pizza!]!
     getToppingPricesForSizes: [ToppingPriceForSize!]!
   }
 

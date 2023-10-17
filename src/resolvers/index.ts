@@ -1,20 +1,18 @@
-import pizzaResolver from "./pizzaResolver";
-import sizeResolver from "./sizeResolver";
-import baseResolver from "./baseResolver";
-import sizesWithBases from "./sizesWithBases";
-import PizzaAndSize from "./PizzaAndSize";
-import pizzWithToppting from "./pizzaWithToppings";
+import getAllPizzasListResolver from "./getAllPizzasListResolver";
+import getpizzaWithRelatedToppings from "./getpizzaWithRelatedToppingsResolver";
+import getpizzaWithRelatedToppingsResolver from "./getpizzaWithRelatedToppingsResolver";
 import getToppingPricesForSizesResolver from "./ getToppingPricesForSizesResolver ";
+import getpizzasWithSizesAndPricesResolver from "./getpizzasWithSizesAndPricesResolver";
+import getSizesWithBasesResolver from "./getSizesWithBasesResolver"
 
 const resolvers = {
   Query: {
-    ...pizzaResolver.Query,
-    ...sizesWithBases.Query,
-    ...PizzaAndSize.Query,
-    ...pizzWithToppting.Query,
+    getAllPizzasList:getAllPizzasListResolver,
+    getpizzaWithRelatedToppings:getpizzaWithRelatedToppingsResolver,
     getToppingPricesForSizes: getToppingPricesForSizesResolver, 
+    getpizzasWithSizesAndPrices: getpizzasWithSizesAndPricesResolver,
+    getSizesWithBases:getSizesWithBasesResolver
 
-    // Add more Query resolvers as needed
   },
 };
 
