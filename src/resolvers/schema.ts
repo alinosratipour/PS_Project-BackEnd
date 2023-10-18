@@ -6,6 +6,8 @@ const typeDefs = gql`
     id_size: Int!
     price_topping: Float!
     size: Size
+    topping: Toppings
+  
   }
 
   type ToppingOnPizza {
@@ -17,13 +19,24 @@ const typeDefs = gql`
   type Toppings {
     id: Int!
     name: String!
+    pizzas: [ToppingOnPizza!]
+    toppingPrice: [ToppingPrice!]
+    toppingPricesBySize: [ToppingPriceForSize!] # New field
   }
 
   type ToppingPriceForSize {
-    size: String
-    toppingPrices: [ToppingPrice!]  
+    id_size: Int
+    name: String # Size name
+    price: Float
   }
   
+
+
+  type ToppingPriceForSize {
+    id_size: Int
+    name: String
+    price: Float
+  }
 
   type Pizza {
     id_pizza: Int!
@@ -72,13 +85,14 @@ const typeDefs = gql`
     getpizzaWithRelatedToppings: [Pizza!]!
     getSizesWithBases: [SizeWithRelatedBases!]!
     getpizzasWithSizesAndPrices: [Pizza!]!
-    getToppingPricesForSizes: [ToppingPriceForSize!]!
+    #getToppingPricesBySize: [ToppingPriceForSize!] # New query
+    getToppingPricesBySize(id_size: Int): [ToppingPriceForSize]
+     
   }
 
   type Mutation {
     createPizza(name: String!, top_quantity: Int!, description: String): Pizza!
     createBase(name: String!, increase_price: Int!): Base! # Add a mutation to create a base
- 
   }
 `;
 

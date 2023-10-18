@@ -1,26 +1,31 @@
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
-
-const toppingPrices = [
-  { id_size: 1, price_topping: 1.5 },
-  { id_size: 2, price_topping: 2.0 },
-  { id_size: 3, price_topping: 2.5 },
-  { id_size: 4, price_topping: 3.5 },
-];
-
 async function main() {
-  const createToppingPrices = toppingPrices.map(async (toppingPrice) => {
-    return prisma.toppingPrice.create({
+  // Get the existing sizes and their IDs
+  const existingSizes = await prisma.size.findMany();
+  const sizeIds = existingSizes.map((size) => size.id);
+
+  // Get the existing toppings
+  const existingToppings = await prisma.toppings.findMany();
+
+  // Update the toppings to connect them to the sizes and add prices
+  for (const topping of existingToppings) {
+    const sizeConnections = sizeIds.map((sizeId) => ({
+      size: { connect: { id: sizeId } as any }, // Type assertion
+      price_topping: 0, // Update the pricing logic here
+    }));
+
+    await prisma.toppings.update({
+      where: { id: topping.id },
       data: {
-        id_size: toppingPrice.id_size,
-        price_topping: toppingPrice.price_topping,
+        toppingPrice: {
+          create: sizeConnections,
+        },
       },
     });
-  });
-
-  await Promise.all(createToppingPrices);
-  console.log('Topping prices created successfully');
+    console.log(`Updated topping: ${topping.name}`);
+  }
 }
 
 main()
