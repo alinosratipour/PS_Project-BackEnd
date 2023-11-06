@@ -20,9 +20,11 @@ const getSizesWithBasesResolver = async (
 
     // Process the data to format it as desired
     const formattedData = sizesWithBasesAndPrices.map((size) => ({
+      id_size: size.id_size, 
       size: size.p_size,
       price: size.price_topping,
       bases: size.basePrice.map((basePrice) => ({
+        id_base: basePrice.base.id_base,
         base: basePrice.base.name,
         price: basePrice.price_base,
       })),
