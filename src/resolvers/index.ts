@@ -5,7 +5,7 @@ import getToppingPricesForSizesResolver from "./ getToppingPricesForSizesResolve
 import getpizzasWithSizesAndPricesResolver from "./getpizzasWithSizesAndPricesResolver";
 import getSizesWithBasesResolver from "./getSizesWithBasesResolver"
 import getToppingPricesBySizeResolver  from "./getToppingPricesBySizeResolver"
-
+import getBasesBySizeResolver from "./getBasesBySizeResolver"
 const resolvers = {
   Query: {
     getAllPizzasList:getAllPizzasListResolver,
@@ -13,7 +13,8 @@ const resolvers = {
    // getToppingPricesForSizes: getToppingPricesForSizesResolver, 
     getpizzasWithSizesAndPrices: getpizzasWithSizesAndPricesResolver,
     getSizesWithBases:getSizesWithBasesResolver,
-    getToppingPricesBySize:getToppingPricesBySizeResolver 
+    getToppingPricesBySize:getToppingPricesBySizeResolver, 
+    getBasesPricesBySize:getBasesBySizeResolver
 
   },
 };
