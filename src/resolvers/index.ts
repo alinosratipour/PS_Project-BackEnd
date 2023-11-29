@@ -1,11 +1,12 @@
 import getAllPizzasListResolver from "./getAllPizzasListResolver";
 //import getpizzaWithRelatedToppings from "./getpizzaWithRelatedToppingsResolver";
 import getpizzaWithRelatedToppingsResolver from "./getpizzaWithRelatedToppingsResolver";
-import getToppingPricesForSizesResolver from "./ getToppingPricesForSizesResolver ";
+//import getToppingPricesForSizesResolver from "./ getToppingPricesForSizesResolver ";
 import getpizzasWithSizesAndPricesResolver from "./getpizzasWithSizesAndPricesResolver";
 import getSizesWithBasesResolver from "./getSizesWithBasesResolver"
 import getToppingPricesBySizeResolver  from "./getToppingPricesBySizeResolver"
 import getBasesBySizeResolver from "./getBasesBySizeResolver"
+import getToppingsOnPizzaResolver from "./getToppingsOnPizzaResolver"
 const resolvers = {
   Query: {
     getAllPizzasList:getAllPizzasListResolver,
@@ -14,7 +15,8 @@ const resolvers = {
     getpizzasWithSizesAndPrices: getpizzasWithSizesAndPricesResolver,
     getSizesWithBases:getSizesWithBasesResolver,
     getToppingPricesBySize:getToppingPricesBySizeResolver, 
-    getBasesPricesBySize:getBasesBySizeResolver
+    getBasesPricesBySize:getBasesBySizeResolver,
+    getToppingsOnPizza:getToppingsOnPizzaResolver
 
   },
 };
