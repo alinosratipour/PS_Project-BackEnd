@@ -25,12 +25,9 @@ const typeDefs = gql`
 
   type ToppingPriceForSize {
     id_size: Int
-    name: String 
+    name: String
     price: Float
   }
-
-  
-
   type Pizza {
     id_pizza: Int!
     name: String!
@@ -64,13 +61,13 @@ const typeDefs = gql`
   }
 
   type SizeWithRelatedBases {
-    id_size: String, 
+    id_size: String
     size: String!
     bases: [BaseWithPrice!]!
   }
 
   type BaseWithPrice {
-    id_base:Int
+    id_base: Int
     base: String!
     price: Float!
   }
@@ -78,11 +75,12 @@ const typeDefs = gql`
   type Query {
     getAllPizzasList: [Pizza!]!
     getpizzaWithRelatedToppings: [Pizza!]!
-   getSizesWithBases: [SizeWithRelatedBases!]!
+    getSizesWithBases: [SizeWithRelatedBases!]!
     getpizzasWithSizesAndPrices: [Pizza!]!
     #getToppingPricesBySize: [ToppingPriceForSize!] # New query
     getToppingPricesBySize(id_size: Int): [ToppingPriceForSize]
     getBasesPricesBySize(id_size: Int): [BaseWithPrice] # New query
+    getToppingsOnPizza(pizzaId: Int!): [ToppingOnPizza!]!
   }
 
   type Mutation {
