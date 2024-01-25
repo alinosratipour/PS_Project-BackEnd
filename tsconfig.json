@@ -11,9 +11,11 @@
     "resolveJsonModule": true,
     "declaration": true,
     "sourceMap": true,
-    "lib": ["esnext"]
+    "lib": ["esnext"],
+    "skipLibCheck": true,
+    "noImplicitAny": false,
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "src/seeds/seedPizza.ts"],
 
   "exclude": ["node_modules"]
 }

@@ -2,7 +2,7 @@ import { PrismaClient } from '@prisma/client';
 
 export interface Context {
   prisma: PrismaClient;
-  disconnect: () => void; // Function to disconnect Prisma
+  disconnect: () => void; // Function to disconnect Prisma //
 }
 
 const prisma = new PrismaClient();
